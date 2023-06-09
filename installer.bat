@@ -1,0 +1,1 @@
+npm install -g del pump path gulp gulp-htmlmin gulp-sass gulp-autoprefixer gulp-postcss postcss-uncss uncss cssnano gulp-eslint gulp-concat gulp-terser gulp-sourcemaps gulp-jasmine-phantom gulp-image-optimization browser-sync

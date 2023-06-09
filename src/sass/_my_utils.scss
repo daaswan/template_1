@@ -1,0 +1,98 @@
+@import 'my_variables';
+
+.fill {
+    // min-height: 100%;
+    // height: 100%;
+}
+
+/*
+    Background Colors
+*/
+
+.bkg-white {
+    background-color: white !important;
+}
+
+.bkg-gray {
+    background-color: map-get($map: $my-colors, $key: "gray-800") !important;
+}
+
+.bkg-gray-light {
+    background-color: map-get($map: $my-colors, $key: "gray-600") !important;
+}
+
+.bkg-gray-lighter {
+    background-color: map-get($map: $my-colors, $key: "gray-100") !important;
+}
+
+.bkg-accent {
+    background-color: map-get($map: $my-colors, $key: "accent") !important;
+}
+
+
+/*
+    Border Colors
+*/
+
+.border-white {
+    border-color: white !important;
+}
+
+.border-gray {
+    border-color: map-get($map: $my-colors, $key: "gray") !important;
+}
+
+.border-gray-light {
+    border-color: map-get($map: $my-colors, $key: "gray-600") !important;
+}
+
+.border-gray-lighter {
+    border-color: map-get($map: $my-colors, $key: "gray-100") !important;
+}
+
+.border-accent {
+    border-color: map-get($map: $my-colors, $key: "accent") !important;
+}
+
+
+/*
+    Font Colors
+*/
+
+.color-white {
+    color: white !important;
+}
+
+.color-gray {
+    color: map-get($map: $my-colors, $key: "gray-800") !important;
+}
+
+.color-gray-light {
+    color: map-get($map: $my-colors, $key: "gray-600") !important;
+}
+
+.color-gray-lighter {
+    color: map-get($map: $my-colors, $key: "gray-100") !important;
+}
+
+.color-accent {
+    color: map-get($map: $my-colors, $key: "accent") !important;
+}
+
+
+/*
+    Heading Sizes
+*/
+.h-size {}
+
+/*
+    Margins
+*/
+.mt-32 {
+    margin-top: rem(32px) !important;
+}
+
+
+/*
+    Paddings
+*/

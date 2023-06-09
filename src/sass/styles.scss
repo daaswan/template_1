@@ -1,0 +1,757 @@
+$navbar-dark-color: #ffffff;
+$navbar-dark-active-color: rgba(255, 255, 255, 0.7);
+$navbar-dark-hover-color: #ffffff;
+
+/**
+Custom SCSS Imports
+*/
+
+@import 'rem';
+
+@import 'my_functions',
+'my_variables',
+'my_mixins';
+
+// Bootstrap SCSS essentials
+@import 'functions',
+'mixins',
+'reboot',
+'type',
+'grid',
+'nav',
+'navbar',
+'forms',
+'buttons',
+'images',
+'utilities',
+'transitions',
+'font-awesome';
+
+
+@import 'my_utils';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.no-touchevents {
+    #touch-nav {
+        display: none;
+    }
+
+    #touch-nav-trigger {
+        display: none;
+    }
+}
+
+.touchevents {
+    #notouch-nav {
+        display: none;
+    }
+
+    #touch-nav {
+        position: fixed;
+        z-index: 101;
+        right: 12px;
+        bottom: 16px;
+        width: 90%;
+        padding: 0;
+        max-width: 400px;
+        max-height: 90%;
+        overflow-y: scroll;
+        background-color: rgba(40, 37, 37, 0.98);
+        border-radius: 4px;
+
+        transform-origin: right bottom;
+        -webkit-transition-property: transform, visibility;
+        transition-property: transform, visibility;
+        -webkit-transition-duration: .30s;
+        transition-duration: .30s;
+        -webkit-transition-timing-function: ease;
+        transition-timing-function: ease;
+        transform: scale(0);
+
+        &.open {
+            transform: scale(1);
+        }
+
+        .contact {
+            color: rgba(255, 255, 255, 0.65) !important;
+        }
+
+        .navbar-toggler {
+            background-color: transparent !important;
+        }
+
+    }
+
+    .navbar {
+        &>div {
+            padding: rem(12px);
+        }
+    }
+
+    .navbar-toggler {
+        display: block;
+        z-index: 100;
+        position: fixed;
+        bottom: 24px;
+        right: 5%;
+        height: 52px;
+        width: 52px;
+        border-radius: 50%;
+        background: map-get($my-colors, "accent");
+        color: white;
+        box-shadow: $box-shadow;
+    }
+}
+
+/*
+Hero Section
+*/
+
+#notouch-nav {
+
+    background-color: rgba(40, 37, 37, 0.98) !important;
+    transition: background-color 200ms linear;
+
+    .navbar {
+        padding: 1rem 0;
+
+        .contact {
+            font-size: 0.9rem;
+        }
+
+        .nav-link {
+            font-size: 0.98rem;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+    }
+
+    .logo {
+        top: (18px);
+        left: (-48px);
+        position: absolute;
+
+        img {
+            width: 100px;
+            height: auto;
+        }
+
+        @include media-breakpoint-down(xl) {
+            left: rem(-8px);
+        }
+    }
+}
+
+.parallax::before {
+    content: "";
+    /* The image used */
+    background-image: url($header-img);
+
+    /* Set a specific height */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: -2;
+}
+
+.parallax::after {
+    content: "";
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.message {
+    line-height: 2.5rem;
+    min-height: 100vh;
+
+    .title {
+        @include text-uppercase;
+        @include font-weight(800);
+        font-size: 2.5rem;
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.9rem;
+        }
+
+        @include media-breakpoint-down(xs) {
+            font-size: 1.9rem;
+        }
+    }
+
+    .description {
+        @include text-capitalize;
+        font-size: 1.20rem;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    .btn-box {
+        @include btn-box(white, white);
+
+        &:hover {
+            cursor: pointer;
+            @include btn-filled(white, map-get($map: $my-colors, $key: "accent"));
+        }
+    }
+}
+
+/*
+    Expert Agency Section
+*/
+// #expert-agency {}
+
+
+/*
+    Our Expertise Section
+*/
+#our-expertise-section {
+    .chart {
+        height: 315px;
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+        background-color: #EFEFEF;
+    }
+
+    .counter {
+        .count {
+            color: map-get($map: $my-colors, $key: "accent");
+            font-weight: 700;
+        }
+
+        .count-title {
+            font-size: 0.9em;
+            margin: 0;
+            color: map-get($map: $my-colors, $key: "gray");
+        }
+    }
+}
+
+
+/*
+    Our Work Section
+*/
+// #our-work {}
+
+
+/*
+    Our Process Section
+*/
+#our-process-section {
+    h4.numeral {
+        font-size: 4rem;
+    }
+}
+
+
+/*
+    We Offer Section
+*/
+// #we-offer {}
+
+
+/*
+    Work Force Section
+*/
+#work-force-section {
+
+    .person {
+        height: 320px;
+
+        .social-tray {
+            height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(map-get($map: $my-colors, $key: "accent"), 0.7);
+            transition: height 250ms ease-out, padding 250ms ease-out;
+
+            .social-icon {
+                @include awesome-circle(1.1em, 36px, white, 1px solid white);
+                margin: 0;
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+                color: #fff;
+                font-size: 0.9em;
+            }
+
+            @include remove-a-effects(white);
+
+            a {
+                margin: 0 8px;
+                opacity: 0;
+                transition: opacity 200ms ease-out;
+            }
+        }
+
+        &:hover {
+            .social-tray {
+                height: 60px;
+                transition: height 250ms ease-in, padding 250ms ease-in;
+
+                a {
+                    opacity: 1;
+                    transition: opacity 400ms ease-in;
+                }
+            }
+        }
+    }
+
+}
+
+.touchevents {
+    .social-tray {
+        height: 60px !important;
+
+        a {
+            opacity: 1 !important;
+        }
+    }
+}
+
+
+/* Testimonials Section */
+
+
+#testimonials-section {
+    .testimonial-img-container {
+        height: 350px;
+        background-color: transparent;
+        border: 4px solid white;
+        border-radius: 4px;
+    }
+
+    .testimonial-control {
+        font-size: 1.5em;
+        padding: 8px;
+        cursor: pointer;
+    }
+}
+
+
+/*
+    Contact Us Section
+*/
+#contact-us-section {
+
+    textarea,
+    input[type="text"],
+    input[type="email"] {
+        color: white;
+        font-size: 1.25em;
+        padding: 24px;
+        border-radius: unset;
+        border: 1px solid white;
+        background-color: transparent;
+    }
+
+    input[type="submit"] {
+        font-weight: 600;
+        width: 100%;
+        border-radius: unset;
+        @include btn-filled(map-get($map: $my-colors, $key: "accent"), white);
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    textarea::placeholder,
+    input::placeholder {
+        color: #EEE;
+        font-size: 0.85em;
+        transition: opacity 500ms ease-out;
+    }
+
+    textarea:focus::placeholder,
+    input:focus::placeholder {
+        opacity: 0.7;
+        transition: opacity 500ms ease-in;
+    }
+
+    .title-underline {
+        @include title-underline(white, 2px, rem(75px));
+    }
+
+    .social {
+        text-align: center;
+
+        div {
+            margin-top: rem(12px);
+        }
+
+        .fa-facebook {
+            margin-left: 0;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        .social {
+            margin-bottom: 42px;
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .social-icon {
+                width: 52px;
+                height: 52px;
+                line-height: 52px !important;
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+
+}
+
+
+/* Start - Footer Section */
+
+#footer {
+    footer {
+        padding: 22px;
+        color: map-get($map: $my-colors, $key: "accent");
+        background-color: #1A1A1A;
+    }
+
+    .footer-img img {
+        max-width: 25px;
+        height: auto;
+    }
+}
+
+.social-icon {
+    margin: 0 16px;
+    @include awesome-circle(1.6rem, rem(72px), white, 1px solid white);
+}
+
+/* End - Footer Section */
+
+
+/* Start - Custom Elements */
+
+.title-underline {
+    @include title-underline(map-get($map: $my-colors, $key: "accent"), 2px, 75px);
+}
+
+.title-underline-short {
+    @include title-underline(map-get($map: $my-colors, $key: "accent"), 1px, 32px);
+}
+
+// .section-header {}
+
+.section-body {
+    color: map-get($map: $my-colors, $key: "gray");
+}
+
+.section-title {
+    @include text-uppercase;
+    @include font-weight(600);
+    font-size: 2.2rem;
+}
+
+.section-description {
+    color: map-get($map: $my-colors, $key: "gray");
+
+    @include media-breakpoint-up(lg) {
+        margin-left: 64px;
+        margin-right: 64px;
+    }
+}
+
+.cap-title {
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+h4.cap-title {
+    @extend .cap-title;
+    font-size: 1.4em;
+    font-weight: 800;
+}
+
+
+/* Start - My Card */
+
+.my-card {
+    .my-card-icon {
+        position: relative;
+        top: 52px;
+        left: 32px;
+        background-color: white;
+        @include awesome-circle(3.2rem, rem(100px), map-get($map: $my-colors, $key: "gray"), 2px solid #ABABAB);
+    }
+
+    .my-card-box {
+
+        padding: 2rem;
+        border: 1px solid #ABABAB;
+
+        .title-underline {
+            display: inline-block;
+            margin-top: 0;
+            @include title-underline(map-get($map: $my-colors, $key: "accent"), 1px, 75px);
+        }
+
+        .my-card-header {
+            margin-top: 3rem;
+            color: map-get($map: $my-colors, $key: "gray-800");
+
+            h4 {
+                text-transform: uppercase;
+                font-size: 1.25em;
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+.no-touchevents .my-card {
+
+    .my-card-icon {
+        transition: border-color 600ms linear;
+    }
+
+    .my-card-box {
+        transition: background-color 600ms linear, color 600ms linear, border-color 600ms linear;
+
+        .my-card-header {
+            transition: color 600ms linear;
+        }
+
+        .title-underline {
+            transition: border-color 600ms linear;
+        }
+
+        .my-card-body {
+            transition: color 600ms linear;
+        }
+    }
+
+}
+
+.no-touchevents .my-card:hover {
+
+    .my-card-icon {
+        border-color: map-get($map: $my-colors, $key: "accent");
+        transition: border-color 600ms linear;
+    }
+
+    .my-card-box {
+        background-color: map-get($map: $my-colors, $key: "accent") !important;
+        border-color: map-get($map: $my-colors, $key: "accent") !important;
+        transition: background-color 600ms linear, color 600ms linear, border-color 600ms linear;
+
+        .my-card-header {
+            color: white !important;
+            transition: color 600ms linear;
+        }
+
+        .title-underline {
+            border-color: white !important;
+            transition: border-color 600ms linear;
+        }
+
+        .my-card-body {
+            color: white !important;
+            transition: color 600ms linear;
+        }
+    }
+
+}
+
+/* End - My Card */
+
+/* Start - Project */
+
+.project {
+
+    width: 100%;
+
+    .project-img {
+        width: auto;
+        height: 256px;
+        background-image: url(https://via.placeholder.com/360x256?text=360x256);
+
+        .shade {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            padding: 32px;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 400ms ease-out;
+
+            .border {
+                width: 100%;
+                height: 100%;
+                border: unset !important;
+                background: linear-gradient(to right, white 1px, transparent 1px) 0 0, linear-gradient(to left, white 1px, transparent 1px) 100% 100%, linear-gradient(to bottom, white 1px, transparent 1px) 0 0, linear-gradient(to top, white 1px, transparent 1px) 100% 100%;
+                background-repeat: no-repeat;
+                background-size: 52px 52px;
+            }
+        }
+
+        .middle {
+            opacity: 0;
+            transition: opacity 400ms ease-out;
+
+            .social-icon {
+                font-size: 1.8rem !important;
+                margin-bottom: 8px;
+                border-width: 2px;
+                width: 3.0rem;
+                height: 3.0rem;
+                line-height: 2.7rem !important;
+            }
+
+            @include remove-a-effects(white);
+
+            .view-details {
+                text-transform: uppercase;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .project-title {
+        @include text-uppercase;
+        @include font-weight(600);
+        color: black;
+    }
+
+    .title-underline {
+        margin: 0;
+        margin-bottom: 12px;
+        display: inline-block;
+    }
+
+    .project-date {
+        display: inline-block;
+        position: relative;
+        top: 38px;
+        padding: 12px 18px;
+        z-index: 4;
+
+        .day {
+            font-size: 2.3rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .ordinal-indicator {
+            display: inline-block;
+            font-size: 0.7rem;
+            top: 0;
+            left: 24px;
+            font-weight: bold;
+        }
+
+        .month {
+            font-size: 1rem;
+        }
+    }
+
+    .project-details-btn {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+
+        @include remove-a-effects(map-get($map: $my-colors, $key: "accent"));
+    }
+}
+
+.no-touchevents .project:hover {
+    .shade {
+        opacity: 0.8;
+        transition: opacity 400ms ease-in;
+    }
+
+    .middle {
+        opacity: 1;
+        transition: opacity 400ms ease-in;
+    }
+}
+
+.touchevents .project-details-btn {
+    display: block !important;
+}
+
+/* End - Project */
+
+/* Start - Custom Elements */
+
+section {
+    padding: 3rem 0;
+}
+
+// remove form outline on focus
+.form-control:focus {
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+.close {
+    width: 32px;
+    height: 32px;
+}
+
+.close::before,
+.close::after {
+    position: absolute;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: rgba(map-get($map: $my-colors, $key: "accent"), 0.8);
+}
+
+.close::before {
+    transform: rotate(45deg);
+}
+
+.close::after {
+    transform: rotate(-45deg);
+}
+
+/* End - Custom Elements */
+
+
+.anchor {
+    display: block;
+    height: 77px;
+    /*same height as header*/
+    margin-top: -77px;
+    /*same height as header*/
+    visibility: hidden;
+}

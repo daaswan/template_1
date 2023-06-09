@@ -1,0 +1,1 @@
+npm link del pump path gulp gulp-htmlmin gulp-sass gulp-autoprefixer gulp-uglifycss gulp-eslint gulp-concat gulp-uglify gulp-sourcemaps gulp-jasmine-phantom gulp-image-optimization browser-sync

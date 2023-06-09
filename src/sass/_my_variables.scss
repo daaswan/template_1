@@ -1,0 +1,26 @@
+@import 'functions',
+'variables';
+
+
+$fa-font-path: "../webfonts";
+
+$color-gray: #5B5B5B;
+$color-gray-light: #c7c6c6;
+$color-gray-lighter: #F7F7F7;
+
+$color-accent: #EE4967;
+
+$my-colors: ("accent": $color-accent,
+"gray": $color-gray,
+"gray-light": $color-gray-light,
+"gray-lighter": $color-gray-lighter);
+
+@each $key,
+$val in $grays {
+    $my-colors: map-merge($map1: $my-colors, $map2: ("gray-"+$key: $val))
+}
+
+$header-img: "https://via.placeholder.com/1920x1080";
+
+$navbar-dark-color: rgba(255, 255, 255, 0.7);
+$navbar-dark-active-color: map-get($map: $my-colors, $key: "accent");
